@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "pumpkinmoon",
+	"version": "${version}",
+
+	"name": "Pumpkin Moon",
+	"description": "Simple October event mod",
+	"authors": [
+		"paulevs"
+	],
+	"contact": {
+		"homepage": "https://discord.gg/qxcP8EjkUC",
+		"sources": "https://github.com/paulevsGitch/PumpkinMoon",
+		"issues": "https://github.com/paulevsGitch/PumpkinMoon/issues"
+	},
+
+	"license": "LGPLv2.1",
+	"icon": "assets/pumpkinmoon/icon.png",
+
+	"environment": "*",
+	"entrypoints": {},
+
+	"mixins": [
+		"pumpkinmoon.mixins.client.json",
+		"pumpkinmoon.mixins.common.json"
+	],
+	
+	"suggests": {
+		"bhcreative": ">=0.4.5"
+	},
+	"depends": {
+		"minecraft": "1.0.0-beta.7.3",
+		"stationapi": ">=2.0-alpha.2.3",
+		"fabricloader": ">=0.15.6-babric.1"
+	}
+}
