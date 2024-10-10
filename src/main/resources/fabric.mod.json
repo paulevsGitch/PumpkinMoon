@@ -18,7 +18,14 @@
 	"icon": "assets/pumpkinmoon/icon.png",
 
 	"environment": "*",
-	"entrypoints": {},
+	"entrypoints": {
+		"stationapi:event_bus": [
+			"paulevs.pumpkinmoon.listener.CommonListener"
+		],
+		"bhcreative:event_bus": [
+			"paulevs.pumpkinmoon.listener.CreativeTabListener"
+		]
+	},
 
 	"mixins": [
 		"pumpkinmoon.mixins.client.json",

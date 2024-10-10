@@ -9,11 +9,12 @@ import net.modificationstation.stationapi.api.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import paulevs.pumpkinmoon.PumpkinMoonInfo;
+import paulevs.pumpkinmoon.PumpkinMoon;
 
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
 	@Shadow private TextureManager textureManager;
+	@Shadow private Level level;
 	
 	@WrapOperation(method = "renderSky", at = @At(
 		value = "INVOKE",
@@ -22,7 +23,7 @@ public class LevelRendererMixin {
 		ordinal = 1
 	))
 	private void pumpkinmoon_changeMoonTexture(int target, int texture, Operation<Void> original) {
-		if (PumpkinMoonInfo.isPumpkinMoon) {
+		if (PumpkinMoon.isPumpkinMoon && level.dimension.id != 0) {
 			texture = textureManager.getTextureId("/assets/pumpkinmoon/textures/moon.png");
 		}
 		original.call(target, texture);
@@ -34,7 +35,7 @@ public class LevelRendererMixin {
 	))
 	private float pumpkinmoon_getEffectValue(Level level, float light, Operation<Float> original) {
 		float alpha = original.call(level, light);
-		PumpkinMoonInfo.effectIntensity = alpha;
+		PumpkinMoon.effectIntensity = alpha;
 		return alpha;
 	}
 	
@@ -45,7 +46,7 @@ public class LevelRendererMixin {
 		ordinal = 1
 	))
 	private void pumpkinmoon_changeStarsColor(float red, float green, float blue, float alpha, Operation<Void> original) {
-		if (PumpkinMoonInfo.isPumpkinMoon) {
+		if (PumpkinMoon.isPumpkinMoon && level.dimension.id != 0) {
 			red = 1.0F;
 			green = 0.843F;
 			blue = 0.0F;
@@ -60,10 +61,10 @@ public class LevelRendererMixin {
 		ordinal = 1
 	))
 	private void pumpkinmoon_changeSkyColor(float red, float green, float blue, Operation<Void> original) {
-		if (PumpkinMoonInfo.isPumpkinMoon) {
-			red = MathHelper.lerp(PumpkinMoonInfo.effectIntensity, red, 1.0F);
-			green = MathHelper.lerp(PumpkinMoonInfo.effectIntensity, green, 0.0F);
-			blue = MathHelper.lerp(PumpkinMoonInfo.effectIntensity, blue, 0.0F);
+		if (PumpkinMoon.isPumpkinMoon && level.dimension.id != 0) {
+			red = MathHelper.lerp(PumpkinMoon.effectIntensity, red, 1.0F);
+			green = MathHelper.lerp(PumpkinMoon.effectIntensity, green, 0.0F);
+			blue = MathHelper.lerp(PumpkinMoon.effectIntensity, blue, 0.0F);
 		}
 		original.call(red, green, blue);
 	}

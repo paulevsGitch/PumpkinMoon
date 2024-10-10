@@ -1,12 +1,14 @@
 package paulevs.pumpkinmoon.mixin.client;
 
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.TextureBinder;
 import net.modificationstation.stationapi.api.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import paulevs.pumpkinmoon.PumpkinMoonInfo;
+import paulevs.pumpkinmoon.PumpkinMoon;
 
 @Mixin(targets = {
 	"net.modificationstation.stationapi.impl.client.arsenic.renderer.render.binder.ArsenicStillWater",
@@ -19,8 +21,11 @@ public abstract class WaterTextureBinderMixin extends TextureBinder {
 	
 	@Inject(method = "update", at = @At("TAIL"))
 	private void pumpkinmoon_updateTexture(CallbackInfo info) {
-		if (!PumpkinMoonInfo.isPumpkinMoon) return;
-		float mix = MathHelper.clamp(PumpkinMoonInfo.effectIntensity * 40.0F, 0.0F, 1.0F);
+		if (!PumpkinMoon.isPumpkinMoon) return;
+		@SuppressWarnings("deprecation")
+		Minecraft minecraft = (Minecraft) FabricLoader.getInstance().getGameInstance();
+		if (minecraft.level.dimension.id != 0) return;
+		float mix = MathHelper.clamp(PumpkinMoon.effectIntensity * 40.0F, 0.0F, 1.0F);
 		for (short i = 0; i < 256; i++) {
 			int index = i << 2;
 			int index2 = index | 2;
