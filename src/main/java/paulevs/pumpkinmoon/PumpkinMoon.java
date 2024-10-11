@@ -34,16 +34,17 @@ public class PumpkinMoon {
 	}
 	
 	public static boolean hasPumpkinMoon(Level level) {
+		if (level == null) return false;
+		// Tag is not working right now, probably a StAPI bug
 		if (HAS_PUMPKIN_MOON == null) {
 			HAS_PUMPKIN_MOON = TagKey.of(
 				DimensionRegistry.KEY,
 				id("has_pumpkin_moon")
 			);
-			System.out.println("Tag: " + HAS_PUMPKIN_MOON.toString());
-			System.out.println(getDimension(level));
-			System.out.println(getDimension(level).streamTags().count());
+			//System.out.println("Tag: " + HAS_PUMPKIN_MOON.toString());
+			//System.out.println(getDimension(level));
+			//System.out.println(getDimension(level).streamTags().count());
 		}
-		//System.out.println(getDimension(level).streamTags().findAny() + " " + getDimension(level).isIn(HAS_PUMPKIN_MOON));*/
 		return isPumpkinMoon && (level.dimension.id == 0 || getDimension(level).isIn(HAS_PUMPKIN_MOON));
 	}
 	

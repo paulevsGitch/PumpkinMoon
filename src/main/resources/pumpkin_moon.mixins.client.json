@@ -6,7 +6,8 @@
 	"client": [
 		"WaterTextureBinderMixin",
 		"FogRendererImplMixin",
-		"LevelRendererMixin"
+		"LevelRendererMixin",
+		"SoundHelperMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

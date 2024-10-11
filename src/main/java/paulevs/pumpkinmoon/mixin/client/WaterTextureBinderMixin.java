@@ -23,7 +23,7 @@ public abstract class WaterTextureBinderMixin extends TextureBinder {
 	private void pumpkin_moon_updateTexture(CallbackInfo info) {
 		@SuppressWarnings("deprecation")
 		Minecraft minecraft = (Minecraft) FabricLoader.getInstance().getGameInstance();
-		if (minecraft.level == null || !PumpkinMoon.hasPumpkinMoon(minecraft.level)) return;
+		if (!PumpkinMoon.hasPumpkinMoon(minecraft.level)) return;
 		float mix = MathHelper.clamp(PumpkinMoon.effectIntensity * 40.0F, 0.0F, 1.0F);
 		for (short i = 0; i < 256; i++) {
 			int index = i << 2;

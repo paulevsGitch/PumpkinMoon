@@ -19,7 +19,7 @@ public class FogRendererImplMixin {
 		at = @At("TAIL")
 	)
 	private static void pumpkin_moon_setupFog(Minecraft minecraft, float delta, CallbackInfo info) {
-		if (minecraft.level == null || !PumpkinMoon.hasPumpkinMoon(minecraft.level)) return;
+		if (!PumpkinMoon.hasPumpkinMoon(minecraft.level)) return;
 		float fogBrightness = 1.0F - PumpkinMoon.effectIntensity;
 		for (byte i = 0; i < FOG_COLOR.length; i++) {
 			FOG_COLOR[i] *= fogBrightness;
