@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "pumpkinmoon",
+	"id": "pumpkin_moon",
 	"version": "${version}",
 
 	"name": "Pumpkin Moon",
@@ -15,7 +15,7 @@
 	},
 
 	"license": "LGPLv2.1",
-	"icon": "assets/pumpkinmoon/icon.png",
+	"icon": "assets/pumpkin_moon/icon.png",
 
 	"environment": "*",
 	"entrypoints": {
@@ -28,8 +28,8 @@
 	},
 
 	"mixins": [
-		"pumpkinmoon.mixins.client.json",
-		"pumpkinmoon.mixins.common.json"
+		"pumpkin_moon.mixins.client.json",
+		"pumpkin_moon.mixins.common.json"
 	],
 	
 	"suggests": {

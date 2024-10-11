@@ -15,8 +15,8 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
 	@Unique private static final String[] PUMPKINMOON_MOON_TEXTURES = new String[] {
-		"/assets/pumpkinmoon/textures/moon.png",
-		"/assets/pumpkinmoon/textures/moon_rotated.png"
+		"/assets/pumpkin_moon/textures/moon.png",
+		"/assets/pumpkin_moon/textures/moon_rotated.png"
 	};
 	
 	@Shadow private TextureManager textureManager;
@@ -28,8 +28,8 @@ public class LevelRendererMixin {
 		remap = false,
 		ordinal = 1
 	))
-	private void pumpkinmoon_changeMoonTexture(int target, int texture, Operation<Void> original) {
-		if (PumpkinMoon.isPumpkinMoon && level.dimension.id == 0) {
+	private void pumpkin_moon_changeMoonTexture(int target, int texture, Operation<Void> original) {
+		if (level != null && PumpkinMoon.hasPumpkinMoon(level)) {
 			int index = (int) (level.getLevelTime() % 24000L) > 18000 ? 1 : 0;
 			texture = textureManager.getTextureId(PUMPKINMOON_MOON_TEXTURES[index]);
 		}
@@ -40,7 +40,7 @@ public class LevelRendererMixin {
 		value = "INVOKE",
 		target = "Lnet/minecraft/level/Level;getSunAngleClamped(F)F"
 	))
-	private float pumpkinmoon_getEffectValue(Level level, float light, Operation<Float> original) {
+	private float pumpkin_moon_getEffectValue(Level level, float light, Operation<Float> original) {
 		float alpha = original.call(level, light);
 		PumpkinMoon.effectIntensity = alpha;
 		return alpha;
@@ -52,8 +52,8 @@ public class LevelRendererMixin {
 		remap = false,
 		ordinal = 1
 	))
-	private void pumpkinmoon_changeStarsColor(float red, float green, float blue, float alpha, Operation<Void> original) {
-		if (PumpkinMoon.isPumpkinMoon && level.dimension.id == 0) {
+	private void pumpkin_moon_changeStarsColor(float red, float green, float blue, float alpha, Operation<Void> original) {
+		if (level != null && PumpkinMoon.hasPumpkinMoon(level)) {
 			red = 1.0F;
 			green = 0.843F;
 			blue = 0.0F;
@@ -67,8 +67,8 @@ public class LevelRendererMixin {
 		remap = false,
 		ordinal = 1
 	))
-	private void pumpkinmoon_changeSkyColor(float red, float green, float blue, Operation<Void> original) {
-		if (PumpkinMoon.isPumpkinMoon && level.dimension.id == 0) {
+	private void pumpkin_moon_changeSkyColor(float red, float green, float blue, Operation<Void> original) {
+		if (level != null && PumpkinMoon.hasPumpkinMoon(level)) {
 			red = MathHelper.lerp(PumpkinMoon.effectIntensity, red, 1.0F);
 			green = MathHelper.lerp(PumpkinMoon.effectIntensity, green, 0.0F);
 			blue = MathHelper.lerp(PumpkinMoon.effectIntensity, blue, 0.0F);

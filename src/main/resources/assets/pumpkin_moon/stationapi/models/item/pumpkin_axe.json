@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:item/generated",
 	"textures": {
-		"layer0": "pumpkinmoon:item/pumpkin_shovel"
+		"layer0": "pumpkin_moon:item/pumpkin_axe"
 	}
 }

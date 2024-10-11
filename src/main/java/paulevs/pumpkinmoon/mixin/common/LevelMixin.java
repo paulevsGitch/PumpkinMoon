@@ -7,12 +7,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import paulevs.pumpkinmoon.PumpkinMoon;
 
-import java.util.Calendar;
-
 @Mixin(Level.class)
 public class LevelMixin {
 	@Inject(method = "processLevel", at = @At("HEAD"))
-	private void pumpkinmoon_processLevel(CallbackInfo info) {
+	private void pumpkin_moon_processLevel(CallbackInfo info) {
 		PumpkinMoon.process();
 	}
 }

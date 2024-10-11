@@ -19,7 +19,7 @@ import java.util.function.BiFunction;
 public class PumpkinMoonItems {
 	public static final List<Item> ITEMS = new ArrayList<>();
 	
-	private static final ToolMaterial PUMPKIN = ToolMaterialFactory.create("pumpkinmoon_pumpkin", 2, 1024, 7.0F, 2);
+	private static final ToolMaterial PUMPKIN = ToolMaterialFactory.create("pumpkin_moon_pumpkin", 2, 1024, 7.0F, 2);
 	
 	public static final Item PUMPKIN_SWORD = makeTool("pumpkin_sword", TemplateSwordItem::new);
 	public static final Item PUMPKIN_SHOVEL = makeTool("pumpkin_shovel", TemplateShovelItem::new);
