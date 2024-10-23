@@ -1,6 +1,7 @@
 package paulevs.pumpkinmoon.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.material.ToolMaterial;
 import net.modificationstation.stationapi.api.item.tool.ToolMaterialFactory;
 import net.modificationstation.stationapi.api.template.item.TemplateAxeItem;
@@ -14,6 +15,7 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.BiFunction;
 
 public class PumpkinMoonItems {
@@ -45,5 +47,10 @@ public class PumpkinMoonItems {
 		item.setTranslationKey(id);
 		ITEMS.add(item);
 		return item;
+	}
+	
+	public static ItemStack getRandomItem(Random random) {
+		Item item = ITEMS.get(random.nextInt(ITEMS.size()));
+		return new ItemStack(item);
 	}
 }
