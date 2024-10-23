@@ -1,5 +1,6 @@
 package paulevs.pumpkinmoon;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.DimensionContainer;
 import net.modificationstation.stationapi.api.registry.DimensionRegistry;
@@ -10,6 +11,7 @@ import net.modificationstation.stationapi.api.util.Namespace;
 
 import java.util.Calendar;
 import java.util.Optional;
+import java.util.Random;
 
 public class PumpkinMoon {
 	private static final Namespace NAMESPACE = Namespace.of("pumpkin_moon");

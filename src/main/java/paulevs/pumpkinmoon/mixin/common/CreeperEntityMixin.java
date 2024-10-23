@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.living.monster.CreeperEntity;
 import net.minecraft.entity.living.monster.MonsterEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.level.Level;
 import net.minecraft.util.io.CompoundTag;
 import org.spongepowered.asm.mixin.Mixin;
@@ -54,8 +55,13 @@ public abstract class CreeperEntityMixin extends MonsterEntity implements Pumpki
 	
 	@Inject(method = "onKilledBy", at = @At("HEAD"))
 	private void pumpkin_moon_addDrop(Entity entity, CallbackInfo info) {
-		if (entity instanceof PlayerEntity && level.random.nextInt(8) == 0) {
-			dropItem(PumpkinMoonItems.getRandomItem(level.random), 0.5F);
+		if (entity instanceof PlayerEntity) {
+			if (level.random.nextInt(8) == 0) {
+				dropItem(PumpkinMoonItems.getRandomItem(level.random), 0.5F);
+			}
+			if (level.random.nextInt(32) == 0) {
+				dropItem(2000 + random.nextInt(2), 1, 0.5F);
+			}
 		}
 	}
 	

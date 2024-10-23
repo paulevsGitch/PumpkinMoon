@@ -46,8 +46,13 @@ public abstract class SkeletonEntityMixin extends MonsterEntity implements Pumpk
 	
 	@Override
 	public void onKilledBy(Entity entity) {
-		if (entity instanceof PlayerEntity && level.random.nextInt(8) == 0) {
-			dropItem(PumpkinMoonItems.getRandomItem(level.random), 0.5F);
+		if (entity instanceof PlayerEntity) {
+			if (level.random.nextInt(8) == 0) {
+				dropItem(PumpkinMoonItems.getRandomItem(level.random), 0.5F);
+			}
+			if (level.random.nextInt(64) == 0) {
+				dropItem(PumpkinMoonItems.getRareLoot(level.random), 0.5F);
+			}
 		}
 	}
 	

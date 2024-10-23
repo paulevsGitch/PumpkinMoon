@@ -53,4 +53,15 @@ public class PumpkinMoonItems {
 		Item item = ITEMS.get(random.nextInt(ITEMS.size()));
 		return new ItemStack(item);
 	}
+	
+	public static ItemStack getRareLoot(Random random) {
+		Item loot = switch (random.nextInt(5)) {
+			case 1 -> Item.goldIngot;
+			case 2 -> Item.ironIngot;
+			case 3 -> Item.apple;
+			case 4 -> Item.goldenApple;
+			default -> Item.diamond;
+		};
+		return new ItemStack(loot);
+	}
 }
