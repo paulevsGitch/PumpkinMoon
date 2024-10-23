@@ -1,7 +1,6 @@
 package paulevs.pumpkinmoon.mixin.common;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.level.Level;
 import net.minecraft.level.LevelMonsterSpawner;
@@ -11,11 +10,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import paulevs.pumpkinmoon.PumpkinMoon;
-
-import java.util.List;
 
 @Mixin(LevelMonsterSpawner.class)
 public class LevelMonsterSpawnerMixin {

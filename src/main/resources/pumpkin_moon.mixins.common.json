@@ -5,7 +5,9 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"LevelMonsterSpawnerMixin",
+		"SkeletonEntityMixin",
 		"CreeperEntityMixin",
+		"ZombieEntityMixin",
 		"LevelMixin"
 	],
 	"injectors": {
