@@ -19,9 +19,9 @@ public class PumpkinMoon {
 	public static final Config CONFIG = new Config("pumpkin_moon");
 	
 	private static final ConfigEntry<Integer> NIGHTS_BETWEEN_MOONS = CONFIG.addEntry(
-		"nightsBetweenMoons", 5,
+		"nightsBetweenMoons", 4,
 		"How many normal nights will be between pumpkin moon events",
-		"Default is 5"
+		"Default is 4"
 	);
 	private static final ConfigEntry<Boolean> APPLY_ONLY_IN_OCTOBER = CONFIG.addEntry(
 		"applyOnlyInOctober", true,
@@ -72,7 +72,7 @@ public class PumpkinMoon {
 	}
 	
 	private static boolean isProperDay(long levelTime) {
-		return (levelTime / 24000L) % NIGHTS_BETWEEN_MOONS.getValue() == 0;
+		return (levelTime / 24000L) % (NIGHTS_BETWEEN_MOONS.getValue() + 1) == 0;
 	}
 	
 	private static RegistryEntry<DimensionContainer<?>> getDimension(Level level) {

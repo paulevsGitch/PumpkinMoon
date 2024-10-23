@@ -29,7 +29,8 @@
 
 	"mixins": [
 		"pumpkin_moon.mixins.client.json",
-		"pumpkin_moon.mixins.common.json"
+		"pumpkin_moon.mixins.common.json",
+		"pumpkin_moon.mixins.server.json"
 	],
 	
 	"suggests": {

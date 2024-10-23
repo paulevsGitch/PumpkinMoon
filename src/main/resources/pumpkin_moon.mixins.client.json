@@ -9,7 +9,8 @@
 		"FogRendererImplMixin",
 		"BipedRendererMixin",
 		"LevelRendererMixin",
-		"SoundHelperMixin"
+		"SoundHelperMixin",
+		"MinecraftMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

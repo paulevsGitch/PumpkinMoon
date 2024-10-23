@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "paulevs.pumpkinmoon.mixin.server",
+	"compatibilityLevel": "JAVA_17",
+	"server": [
+		"MinecraftServerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

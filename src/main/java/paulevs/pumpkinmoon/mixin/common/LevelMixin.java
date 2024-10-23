@@ -11,11 +11,6 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 
 @Mixin(Level.class)
 public class LevelMixin {
-	@Inject(method = "processLevel", at = @At("HEAD"))
-	private void pumpkin_moon_processLevel(CallbackInfo info) {
-		PumpkinMoon.process();
-	}
-	
 	@WrapOperation(method = "processLevel", at = @At(
 		value = "INVOKE",
 		target = "Lnet/minecraft/level/LevelMonsterSpawner;spawnEntities(Lnet/minecraft/level/Level;ZZ)I"
