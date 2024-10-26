@@ -4,6 +4,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.TextureBinder;
 import net.modificationstation.stationapi.api.util.math.MathHelper;
+import net.modificationstation.stationapi.impl.client.arsenic.renderer.render.binder.ArsenicFlowingWater;
+import net.modificationstation.stationapi.impl.client.arsenic.renderer.render.binder.ArsenicStillWater;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -13,7 +15,10 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 @Mixin(targets = {
 	"net.modificationstation.stationapi.impl.client.arsenic.renderer.render.binder.ArsenicStillWater",
 	"net.modificationstation.stationapi.impl.client.arsenic.renderer.render.binder.ArsenicFlowingWater"
-})
+},
+value = {
+	ArsenicStillWater.class, ArsenicFlowingWater.class
+}, remap = false)
 public abstract class WaterTextureBinderMixin extends TextureBinder {
 	public WaterTextureBinderMixin(int id) {
 		super(id);

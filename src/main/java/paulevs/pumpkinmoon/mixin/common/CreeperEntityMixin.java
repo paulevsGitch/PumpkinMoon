@@ -54,7 +54,7 @@ public abstract class CreeperEntityMixin extends MonsterEntity implements Pumpki
 	
 	@Inject(method = "onKilledBy", at = @At("HEAD"))
 	private void pumpkin_moon_addDrop(Entity entity, CallbackInfo info) {
-		if (entity instanceof PlayerEntity) {
+		if (entity instanceof PlayerEntity && pumpkinMoon$hasPumpkinSkin()) {
 			if (level.random.nextInt(8) == 0) {
 				dropItem(PumpkinMoonItems.getRandomItem(level.random), 0.5F);
 			}

@@ -14,8 +14,9 @@ public class MinecraftServerMixin {
 		value = "INVOKE",
 		target = "Ljava/lang/System;currentTimeMillis()J",
 		shift = Shift.AFTER,
+		remap = false,
 		ordinal = 1
-	))
+	), remap = false)
 	private void pumpkin_moon_runServer(CallbackInfo info) {
 		PumpkinMoon.process();
 	}

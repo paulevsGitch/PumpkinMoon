@@ -37,6 +37,7 @@ public abstract class BipedRendererMixin extends LivingEntityRenderer {
 		value = "INVOKE",
 		target = "Lorg/lwjgl/opengl/GL11;glPushMatrix()V",
 		shift = Shift.AFTER,
+		remap = false,
 		ordinal = 0
 	))
 	private void pumpkin_moon_fixItemColor(LivingEntity entity, float delta, CallbackInfo info) {
