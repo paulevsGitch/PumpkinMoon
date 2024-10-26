@@ -4,7 +4,8 @@
 	"package": "paulevs.pumpkinmoon.mixin.server",
 	"compatibilityLevel": "JAVA_17",
 	"server": [
-		"MinecraftServerMixin"
+		"MinecraftServerMixin",
+		"TrackedEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

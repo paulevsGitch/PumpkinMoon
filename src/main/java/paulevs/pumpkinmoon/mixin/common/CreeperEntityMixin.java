@@ -4,7 +4,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.living.monster.CreeperEntity;
 import net.minecraft.entity.living.monster.MonsterEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.level.Level;
 import net.minecraft.util.io.CompoundTag;
 import org.spongepowered.asm.mixin.Mixin;

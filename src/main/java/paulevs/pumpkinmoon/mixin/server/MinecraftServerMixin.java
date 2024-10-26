@@ -12,10 +12,11 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 public class MinecraftServerMixin {
 	@Inject(method = "run", at = @At(
 		value = "INVOKE",
-		target = "Lnet/minecraft/server/MinecraftServer;processQueuedCommands()V",
-		shift = Shift.AFTER
+		target = "Ljava/lang/System;currentTimeMillis()J",
+		shift = Shift.AFTER,
+		ordinal = 1
 	))
-	private void pumpkin_moon_runClient(CallbackInfo info) {
+	private void pumpkin_moon_runServer(CallbackInfo info) {
 		PumpkinMoon.process();
 	}
 }
