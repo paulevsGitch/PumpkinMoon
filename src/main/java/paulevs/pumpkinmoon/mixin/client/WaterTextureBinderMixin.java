@@ -18,7 +18,7 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 },
 value = {
 	ArsenicStillWater.class, ArsenicFlowingWater.class
-}, remap = false)
+})
 public abstract class WaterTextureBinderMixin extends TextureBinder {
 	public WaterTextureBinderMixin(int id) {
 		super(id);

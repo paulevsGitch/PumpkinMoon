@@ -13,7 +13,6 @@ import paulevs.pumpkinmoon.PumpkinMoon;
 public class LevelMixin {
 	@Inject(method = "processLevel", at = @At("HEAD"))
 	private void pumpkin_moon_processLevel(CallbackInfo info) {
-		//System.out.println(Level.class.cast(this).dimension.id);
 		PumpkinMoon.processLevel(Level.class.cast(this));
 	}
 	
@@ -22,7 +21,6 @@ public class LevelMixin {
 		target = "Lnet/minecraft/level/LevelMonsterSpawner;spawnEntities(Lnet/minecraft/level/Level;ZZ)I"
 	))
 	private int pumpkin_moon_increaseSpawn(Level level, boolean spawnHostile, boolean spawnNeutral, Operation<Integer> original) {
-		
 		if (spawnHostile && PumpkinMoon.hasPumpkinMoon(level)) {
 			int count = 0;
 			for (byte i = 0; i < 8; i++) {

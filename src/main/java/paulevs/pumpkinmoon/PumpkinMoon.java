@@ -126,7 +126,6 @@ public class PumpkinMoon {
 	
 	@Environment(EnvType.SERVER)
 	private static void UpdatePlayers(Level level, boolean moon) {
-		System.out.println("Update players!");
 		for (Object obj : level.players) {
 			PlayerEntity player = (PlayerEntity) obj;
 			PacketHelper.sendTo(player, new MoonStatePacket(moon));

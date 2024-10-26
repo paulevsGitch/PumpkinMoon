@@ -23,12 +23,12 @@ public class LevelMonsterSpawnerMixin {
 	}
 	
 	@ModifyConstant(method = "spawnEntities", constant = @Constant(intValue = 3))
-	private static int pumpkin_moon_changeInterations1(int original, @Local EntityType type) {
+	private static int pumpkin_moon_changeIterations1(int original, @Local EntityType type) {
 		return pumpkin_moon_isMoon && type == EntityType.MONSTER ? 100 : original;
 	}
 	
 	@ModifyConstant(method = "spawnEntities", constant = @Constant(intValue = 4))
-	private static int pumpkin_moon_changeInterations2(int original, @Local EntityType type) {
+	private static int pumpkin_moon_changeIterations2(int original, @Local EntityType type) {
 		return pumpkin_moon_isMoon && type == EntityType.MONSTER ? 20 : original;
 	}
 }
