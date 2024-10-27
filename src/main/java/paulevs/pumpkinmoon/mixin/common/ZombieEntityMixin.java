@@ -37,7 +37,7 @@ public abstract class ZombieEntityMixin extends MonsterEntity implements Pumpkin
 	
 	@Override
 	protected void initDataTracker() {
-		boolean isMoon = PumpkinMoon.hasPumpkinMoon(level) && level.random.nextInt(4) == 0;
+		boolean isMoon = PumpkinMoon.hasPumpkinMoon(level) && level.random.nextInt(4) > 0;
 		dataTracker.startTracking(PUMPKIN_MOON_ID, isMoon ? (byte) 1 : (byte) 0);
 	}
 	

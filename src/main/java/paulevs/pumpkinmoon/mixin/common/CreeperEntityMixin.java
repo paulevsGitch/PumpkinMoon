@@ -27,7 +27,7 @@ public abstract class CreeperEntityMixin extends MonsterEntity implements Pumpki
 	
 	@Inject(method = "initDataTracker", at = @At("TAIL"))
 	private void pumpkin_moon_initDataTracker(CallbackInfo info) {
-		boolean isMoon = PumpkinMoon.hasPumpkinMoon(level) && level.random.nextInt(4) == 0;
+		boolean isMoon = PumpkinMoon.hasPumpkinMoon(level) && level.random.nextInt(4) > 0;
 		dataTracker.startTracking(PUMPKIN_MOON_ID, isMoon ? (byte) 1 : (byte) 0);
 	}
 	
