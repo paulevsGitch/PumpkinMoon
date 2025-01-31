@@ -1,6 +1,6 @@
 plugins {
-	id "fabric-loom" version "1.7.2"
-	id "babric-loom-extension" version "1.7.4"
+	id "fabric-loom" version "1.8.12"
+	id "babric-loom-extension" version "1.8.9"
 	id "maven-publish"
 }
 
@@ -62,8 +62,8 @@ dependencies {
 	modImplementation("com.github.paulevsGitch:BHCreative:${project.bhcreative_version}") {
 		transitive false
 	}
-	
-	modImplementation("com.github.matthewperiut:spc-babric:${project.spc_version}") {
+
+	modImplementation("com.github.matthewperiut:retrocommands:${project.retrocommands_version}") {
 		transitive false
 	}
 }
