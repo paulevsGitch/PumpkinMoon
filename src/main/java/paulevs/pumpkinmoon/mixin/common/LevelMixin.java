@@ -21,7 +21,7 @@ public class LevelMixin {
 		target = "Lnet/minecraft/level/LevelMonsterSpawner;spawnEntities(Lnet/minecraft/level/Level;ZZ)I"
 	))
 	private int pumpkin_moon_increaseSpawn(Level level, boolean spawnHostile, boolean spawnNeutral, Operation<Integer> original) {
-		if (spawnHostile && PumpkinMoon.hasPumpkinMoon(level)) {
+		if (PumpkinMoon.INCREASE_SPAWN.getValue() && spawnHostile && PumpkinMoon.hasPumpkinMoon(level)) {
 			int count = 0;
 			for (byte i = 0; i < 8; i++) {
 				count += original.call(level, true, i == 0 && spawnNeutral);

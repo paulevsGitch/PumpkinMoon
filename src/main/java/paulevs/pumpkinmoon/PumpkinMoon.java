@@ -46,6 +46,11 @@ public class PumpkinMoon {
 		"Log when Pumpkin Moon starts/ends in worlds",
 		"Default is true"
 	);
+	public static final ConfigEntry<Boolean> INCREASE_SPAWN = CONFIG.addEntry(
+		"increaseSpawn", true,
+		"Increase spawn of mobs during the event",
+		"Default is true"
+	);
 	
 	private static TagKey<DimensionContainer<?>> hasPumpkinMoon;
 	public static boolean isPumpkinMoon;
@@ -78,6 +83,7 @@ public class PumpkinMoon {
 				long time = level.getLevelTime();
 				moon = isNight(time) && isProperDay(time);
 			}
+			else moon = false;
 		}
 		
 		if (moon != levelMoon) {
