@@ -54,6 +54,20 @@ public abstract class SkeletonEntityMixin extends MonsterEntity implements Pumpk
 				dropItem(PumpkinMoonItems.getRareLoot(level.random), 0.5F);
 			}
 		}
+		if (this.field_1024 >= 0 && entity != null) {
+			entity.onKilledOther(this, this.field_1024);
+		}
+
+		if (entity != null) {
+			entity.handleKilledEntity(this);
+		}
+
+		this.field_1045 = true;
+		if (!this.level.isRemote && !pumpkinMoon$hasPumpkinSkin()) {
+			this.getDrops();
+		}
+
+		this.level.updateEntityStatus(this, (byte)3);
 	}
 	
 	@Override

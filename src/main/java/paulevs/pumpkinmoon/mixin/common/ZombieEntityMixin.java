@@ -19,7 +19,7 @@ public abstract class ZombieEntityMixin extends MonsterEntity implements Pumpkin
 	public ZombieEntityMixin(Level level) {
 		super(level);
 	}
-	
+
 	@Override
 	public void writeCustomDataToTag(CompoundTag tag) {
 		tag.put("pumpkin_moon_hasPumpkinSkin", pumpkinMoon$hasPumpkinSkin());
@@ -51,6 +51,20 @@ public abstract class ZombieEntityMixin extends MonsterEntity implements Pumpkin
 				dropItem(PumpkinMoonItems.getRareLoot(level.random), 0.5F);
 			}
 		}
+		if (this.field_1024 >= 0 && entity != null) {
+			entity.onKilledOther(this, this.field_1024);
+		}
+
+		if (entity != null) {
+			entity.handleKilledEntity(this);
+		}
+
+		this.field_1045 = true;
+		if (!this.level.isRemote && !pumpkinMoon$hasPumpkinSkin()) {
+			this.getDrops();
+		}
+
+		this.level.updateEntityStatus(this, (byte)3);
 	}
 	
 	@Override
